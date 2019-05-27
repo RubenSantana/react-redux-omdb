@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as movieActions from "../../redux/actions/movieActions";
+import * as movieDetailsActions from "../../redux/actions/movieDetailsActions";
 import MoviesList from "./MoviesList";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
@@ -23,6 +24,12 @@ class HomePage extends React.Component {
     });
     this.setState({
       searchByTitle: ""
+    });
+  };
+
+  handleClick = movieId => {
+    this.props.actions.displayMovieDetails(movieId).catch(error => {
+      alert("Display movie details failed." + error);
     });
   };
 
@@ -50,7 +57,10 @@ class HomePage extends React.Component {
           </form>
         </div>
         {this.props.searchResponse.Search && (
-          <MoviesList movies={this.props.searchResponse.Search} />
+          <MoviesList
+            movies={this.props.searchResponse.Search}
+            handleClick={this.handleClick}
+          />
         )}
       </div>
     );
@@ -71,7 +81,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      loadMovies: bindActionCreators(movieActions.loadMovies, dispatch)
+      loadMovies: bindActionCreators(movieActions.loadMovies, dispatch),
+      displayMovieDetails: bindActionCreators(
+        movieDetailsActions.displayMovieDetails,
+        dispatch
+      )
     }
   };
 }
