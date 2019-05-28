@@ -1,20 +1,48 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as movieDetailsActions from "../../redux/actions/movieDetailsActions";
-import PropTypes from "prop-types";
 
-function MovieDetailsPage(props) {
-  //const { movieDetails } = this.props;
+const MovieDetailsPage = ({ movieDetails }) => {
   return (
     <>
-      <h2>movie.title</h2>
+      <div className="vital">
+        <div id="quicklinksBar" />
+        <div className="title-block">
+          <h2>
+            {movieDetails.Title} ({movieDetails.Year})
+          </h2>
+        </div>
+        <div className="slate-wrapper" />
+      </div>
+
+      <div className="plot-summary-wrapper">
+        <div className="plot-summary">
+          <div className="summary-text" />
+          <div className="credit-summary-item" />
+          <div className="credit-summary-item" />
+          <div className="credit-summary-item" />
+        </div>
+        <div className="titleReviewBar">
+          <div className="titleReviewBarItem">
+            <div className="titleReviewBarSubItem">
+              <div />
+              <div />
+            </div>
+          </div>
+          <div className="divider" />
+          <div className="titleReviewBarItem">
+            <div>Reviews</div>
+          </div>
+        </div>
+      </div>
     </>
   );
-}
+};
 
 MovieDetailsPage.propTypes = {
-  movieDetails: PropTypes.object.isRequired,
-  displayMovieDetails: PropTypes.func.isRequired
+  movieDetails: PropTypes.object.isRequired
+  //displayMovieDetails: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -24,7 +52,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  displayMovieDetails: movieDetailsActions.displayMovieDetails
+  //displayMovieDetails: movieDetailsActions.displayMovieDetails
 };
 
 export default connect(

@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const MovieItem = props => {
   const { movie, handleClick } = props;
 
   return (
-    <div key={movie.imdbID} onClick={handleClick(movie.imdbID)}>
-      {movie.Title + " (" + movie.Year + ") (" + movie.Type + ")"}
-    </div>
+    <Link to={"/movieDetails/"}>
+      <div key={movie.imdbID} onClick={() => handleClick(movie.imdbID)}>
+        {movie.Title + " (" + movie.Year + ") (" + movie.Type + ")"}
+      </div>
+    </Link>
   );
 };
 
