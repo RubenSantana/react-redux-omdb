@@ -1,0 +1,206 @@
+#root {
+    font-family: Verdana, Arial, sans-serif;
+    color: #333;
+    font-size: 13px;
+}
+
+h4 {
+    color: #666666;
+    font-size: 13px;
+    margin: 0.35em 0 0 0.25em;
+    padding: 0;
+}
+
+.vital {
+    background-color: #333;
+    color: #fff;
+}
+
+#quicklinksBar {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 13px;
+    padding: 0;
+}
+
+#quicklinksBar span {
+    font-weight: normal;
+}
+
+#quicklinksBar #quicklinksMainSection {
+    display: inline-block;
+    padding: 15px 20px 0 20px;
+}
+
+#quicklinksBar .quicklink:link {
+    color: silver;
+}
+
+#quicklinksBar .quicklink {
+    color: silver;
+    cursor: pointer;
+}
+
+.quicklink a:visited {
+    color: #70579D;
+    text-decoration: none;
+}
+
+.quicklink a:link {
+    color: #136CB2;
+    text-decoration: none;
+}
+
+.ghost {
+    color: #CCC;
+    font-style: normal;
+}
+
+.vital .ghost {
+    margin: 0 .5em;
+    color: #6b6b6b;
+}
+
+.title-block {
+    padding: 20px 0 14px 0;
+}
+
+.ratings-wrapper {
+    float: right;
+    position: relative;
+    margin-left: 5px;
+    width: 185px;
+    z-index: 2;
+}
+
+.ratings-wrapper .imdbRating {
+    background: url(https://m.media-amazon.com/images/G/01/imdb/images/title/title_overview_sprite-1705639977._V_.png) no-repeat;
+    background-position: -15px -118px;
+    float: left;
+    font-size: 11px;
+    height: 40px;
+    line-height: 13px;
+    padding: 2px 0 0 34px;
+    width: 58px;
+}
+
+.ratings-wrapper .imdbRating .ratingValue {
+    margin-bottom: -2px;
+    white-space: nowrap;
+}
+
+.ratings-wrapper .imdbRating .ratingValue strong {
+    font-size: 24px;
+    font-weight: normal;
+    font-family: Arial;
+    line-height: 24px;
+}
+
+.ratings-wrapper .imdbRating .grey {
+    color: #6b6b6b;
+    font-size: 10px;
+}
+
+.ratings-wrapper .imdbRating .small {
+    font-size: 10px;
+}
+
+.title-block .title-bar-wrapper .titleBar {
+    position: relative;
+    padding: 0 20px;
+}
+
+.title-block .title-bar-wrapper .title-wrapper {
+    min-height: 58px;
+}
+
+.title-wrapper {
+    margin-left: 52px;
+}
+
+.title-block .title-bar-wrapper .title-wrapper h1 {
+    font: 36px Arial sans-serif;
+    font-weight: normal;
+    line-height: 110%;
+    margin: 0px;
+    color: #fff;
+    padding-bottom: 3px;
+}
+
+#titleYear {
+    color: silver;
+    font-family: Arial;
+    font-size: 25px;
+    line-height: 100%;
+}
+
+.title-block .title-bar-wrapper .title-wrapper .subtext {
+    font-size: 11px;
+    color: silver;
+}
+
+.slate-wrapper .poster {
+    display: inline-block;
+    vertical-align: top;
+    width: 46%;
+    margin: 20px 30px 0 0;
+}
+
+.slate-wrapper .summary-text {
+    display: inline-block;
+    padding-top: 18px;
+    width: 46%;
+}
+
+@media (max-width: 620px) {
+    .slate-wrapper .poster {
+        width: 100%;
+    }
+    .slate-wrapper .summary-text {
+        width: 100%;
+    }
+}
+
+.plot-summary-wrapper {
+    overflow: hidden;
+    border-top: 1px solid #CCC;
+}
+
+.plot-summary-wrapper .plot-summary {
+    padding: 18px 20px;
+}
+
+.plot-summary-wrapper .plot-summary .credit-summary-item {
+    padding-bottom: 5px;
+}
+
+.plot-summary-wrapper .plot-summary .credit-summary-item:last-child {
+    padding-bottom: 0;
+}
+
+h4 .inline {
+    display: inline;
+    padding: 0 0.5em 0 0;
+}
+
+.titleReviewBar {
+    height: 31px;
+    padding-left: 20px;
+    padding-bottom: 18px;
+}
+
+.titleReviewBar .titleReviewBarItem {
+    display: inline-block;
+}
+
+.titleReviewBar .titleReviewBarSubItem {
+    display: inline-block;
+}
+
+.titleReviewBar .imdbScore {
+    color: white;
+    font-size: 13px;
+    height: 28px;
+    text-align: center;
+    vertical-align: 55%;
+    width: 28px;
+}
