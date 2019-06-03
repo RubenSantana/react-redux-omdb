@@ -1,4 +1,7 @@
 export default {
   searchResponse: {},
-  movieDetails: {}
+  movieDetails: {
+    Ratings: []
+  },
+  apiCallsInProgress: 0
 };

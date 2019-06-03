@@ -1,5 +1,6 @@
 import * as types from "./actionTypes";
 import { getMovieById } from "../../api/moviesApi";
+import { beginApiCall } from "./apiStatusActions";
 
 export function displayMovieDetailsSuccess(movieDetails) {
   return {
@@ -10,6 +11,7 @@ export function displayMovieDetailsSuccess(movieDetails) {
 
 export function displayMovieDetails(movieId) {
   return function(dispatch) {
+    dispatch(beginApiCall());
     return getMovieById(movieId)
       .then(movieDetails => {
         dispatch(displayMovieDetailsSuccess(movieDetails));

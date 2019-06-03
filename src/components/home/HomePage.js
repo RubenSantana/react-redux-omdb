@@ -1,10 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
-import * as movieActions from "../../redux/actions/movieActions";
-import * as movieDetailsActions from "../../redux/actions/movieDetailsActions";
-import MoviesList from "./MoviesList";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import * as movieActions from "../../redux/actions/movieActions";
+import MoviesList from "./MoviesList";
+import Spinner from "../common/Spinner";
 
 class HomePage extends React.Component {
   state = {
@@ -50,8 +50,14 @@ class HomePage extends React.Component {
             </div>
           </form>
         </div>
-        {this.props.searchResponse.Search && (
-          <MoviesList movies={this.props.searchResponse.Search} />
+        {this.props.loading ? (
+          <Spinner />
+        ) : (
+          <>
+            {this.props.searchResponse.Search && (
+              <MoviesList movies={this.props.searchResponse.Search} />
+            )}
+          </>
         )}
       </div>
     );
@@ -60,23 +66,21 @@ class HomePage extends React.Component {
 
 HomePage.propTypes = {
   searchResponse: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    searchResponse: state.searchResponse
+    searchResponse: state.searchResponse,
+    loading: state.apiCallsInProgress > 0
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      loadMovies: bindActionCreators(movieActions.loadMovies, dispatch),
-      displayMovieDetails: bindActionCreators(
-        movieDetailsActions.displayMovieDetails,
-        dispatch
-      )
+      loadMovies: bindActionCreators(movieActions.loadMovies, dispatch)
     }
   };
 }
