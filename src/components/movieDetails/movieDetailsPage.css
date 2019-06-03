@@ -204,3 +204,8 @@ h4 .inline {
     vertical-align: 55%;
     width: 28px;
 }
+
+.jumbotron {
+    align-content: center;
+    max-width: 480px;
+}

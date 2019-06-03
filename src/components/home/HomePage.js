@@ -27,12 +27,6 @@ class HomePage extends React.Component {
     });
   };
 
-  handleClick = movieId => {
-    this.props.actions.displayMovieDetails(movieId).catch(error => {
-      alert("Display movie details failed." + error);
-    });
-  };
-
   render() {
     return (
       <div className="homepage-content">
@@ -57,10 +51,7 @@ class HomePage extends React.Component {
           </form>
         </div>
         {this.props.searchResponse.Search && (
-          <MoviesList
-            movies={this.props.searchResponse.Search}
-            handleClick={this.handleClick}
-          />
+          <MoviesList movies={this.props.searchResponse.Search} />
         )}
       </div>
     );

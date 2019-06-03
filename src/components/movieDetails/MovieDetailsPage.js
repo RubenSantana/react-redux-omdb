@@ -2,8 +2,20 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./movieDetailsPage.css";
+import * as movieDetailsActions from "../../redux/actions/movieDetailsActions";
 
-const MovieDetailsPage = ({ movieDetails }) => {
+function MovieDetailsPage({
+  movieDetails,
+  displayMovieDetails,
+  match,
+  ...props
+}) {
+  const movieID = match.params.id;
+
+  useEffect(() => {
+    displayMovieDetails(movieID);
+  }, []);
+
   return (
     <>
       <div className="vital">
@@ -136,7 +148,7 @@ const MovieDetailsPage = ({ movieDetails }) => {
               <span>
                 {/*
                   movieDetails.Ratings.filter(
-                    site => site.Source === "Rotten Tomatoes"
+                    site => site.Source === "RottenTomatoes"
                   ).Value
                 */}
               </span>
@@ -157,11 +169,12 @@ const MovieDetailsPage = ({ movieDetails }) => {
       </div>
     </>
   );
-};
+}
 
 MovieDetailsPage.propTypes = {
-  movieDetails: PropTypes.object.isRequired
-  //displayMovieDetails: PropTypes.func.isRequired
+  movieDetails: PropTypes.object.isRequired,
+  displayMovieDetails: PropTypes.func.isRequired,
+  match: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -171,7 +184,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  //displayMovieDetails: movieDetailsActions.displayMovieDetails
+  displayMovieDetails: movieDetailsActions.displayMovieDetails
 };
 
 export default connect(
