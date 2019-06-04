@@ -1,7 +1,12 @@
 export default {
   searchResponse: {},
   movieDetails: {
-    Ratings: []
+    Ratings: [
+      {
+        Source: "Rotten Tomatoes",
+        Value: ""
+      }
+    ]
   },
   apiCallsInProgress: 0
 };

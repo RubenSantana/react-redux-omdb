@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import MovieDetailsPage from "../movieDetails/MovieDetailsPage";
+import { Link } from "react-router-dom";
 
 const MovieItem = props => {
   const { movie } = props;

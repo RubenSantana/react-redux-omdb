@@ -17,8 +17,6 @@ function MovieDetailsPage({
     displayMovieDetails(movieID);
   }, []);
 
-  debugger;
-
   return (
     <>
       {loading ? (
@@ -155,8 +153,8 @@ function MovieDetailsPage({
                   <span>
                     {
                       movieDetails.Ratings.filter(
-                        site => site.Source === "RottenTomatoes"
-                      ).Value
+                        site => site.Source === "Rotten Tomatoes"
+                      )[0].Value
                     }
                   </span>
                 </div>
